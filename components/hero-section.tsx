@@ -6,21 +6,41 @@ import Image from "next/image";
 
 import heroIllustration from "../public/spark-logo-prize.png";
 
-// A simple typewriter effect component.
-function Typewriter({ text, speed = 150 }: { text: string; speed?: number }) {
+// A typewriter effect that loops: types the text, pauses, erases it, and repeats.
+function Typewriter({
+  text,
+  speed = 150,
+  pause = 1000,
+}: {
+  text: string;
+  speed?: number;
+  pause?: number;
+}) {
   const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      setDisplayedText((prev) => prev + text[index]);
-      index++;
-      if (index === text.length) {
-        clearInterval(timer);
-      }
-    }, speed);
-    return () => clearInterval(timer);
-  }, [text, speed]);
+    let timer: NodeJS.Timeout;
+
+    if (!isDeleting && displayedText === text) {
+      // Finished typing: wait, then start deleting.
+      timer = setTimeout(() => setIsDeleting(true), pause);
+    } else if (isDeleting && displayedText === "") {
+      // Finished deleting: wait, then start typing.
+      timer = setTimeout(() => setIsDeleting(false), pause);
+    } else {
+      timer = setTimeout(() => {
+        setDisplayedText((prev) => {
+          if (!isDeleting) {
+            return text.substring(0, prev.length + 1);
+          } else {
+            return text.substring(0, prev.length - 1);
+          }
+        });
+      }, speed);
+    }
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, text, speed, pause]);
 
   return <span>{displayedText}</span>;
 }
