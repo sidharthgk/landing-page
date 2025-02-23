@@ -17,13 +17,13 @@ export default function Header() {
   if (!mounted) return null
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-purple-200 bg-opacity-30 dark:bg-purple-900 dark:bg-opacity-80 backdrop-blur-md text-black dark:text-white shadow-sm">
+    <header className="sticky top-0 z-50 w-full bg-opacity-0 dark:bg-opacity-0 backdrop-blur-md text-black dark:text-white shadow-sm">
       <div className="container flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2 transition-transform hover:scale-105">
           <img
-            src={theme === "dark" ? "/sparkventure-logo-white.png" : "/sparkventure-logo.png"}
+            src={theme === "dark" ? "/sp-logo-white02.svg" : "/sp-logo-black02.svg"}
             alt="Spark Venture Logo"
-            className="h-12 w-auto"
+            className="h-16 w-auto"
           />
         </Link>
         <nav className="flex items-center space-x-8">

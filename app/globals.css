@@ -1,41 +1,66 @@
+/* app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* Light Mode (Default) Variables – matching the hero section's theme */
   :root {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    /* Background & Text */
+    --background: 0 0% 100%;            /* white background */
+    --foreground: 0 0% 0%;              /* black text */
+
+    /* Primary Colors (used for buttons, accents, etc.) */
+    --primary: 252 75% 60%;             /* a bright purple similar to hero section accents */
+    --primary-foreground: 0 0% 0%;       /* black text on primary backgrounds */
+
+    /* Secondary Colors */
+    --secondary: 252 75% 40%;           /* a slightly darker purple */
+    --secondary-foreground: 0 0% 100%;   /* white text on secondary backgrounds */
+
+    /* Muted & Accent */
+    --muted: 220 14% 95%;               /* a very light gray */
+    --muted-foreground: 220 10% 40%;
+    --accent: 252 60% 65%;              /* accent purple */
+    --accent-foreground: 0 0% 0%;
+
+    /* Card & Border */
+    --card: 252 80% 98%;                /* very light purple (almost white) */
+    --card-foreground: 0 0% 0%;
+    --border: 220 14% 88%;              /* light border */
+    --input: 220 14% 88%;
+    --ring: 252 60% 65%;
+    --radius: 0.5rem;
+  }
+
+  /* Dark Mode Variables – using dark purple tones */
+  .dark {
+    --background: 224 71% 4%;           /* dark purple background */
+    --foreground: 213 31% 91%;          /* light text */
 
     --primary: 222.2 47.4% 55.8%;
     --primary-foreground: 210 40% 98%;
-
     --secondary: 222.2 47.4% 11.2%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 223 47% 11%;
     --muted-foreground: 215.4 16.3% 56.9%;
-
     --accent: 216 34% 17%;
     --accent-foreground: 210 40% 98%;
-
-    --card: 224 71% 4%;
+    --card: 224 71% 4%;                 /* dark card background */
     --card-foreground: 213 31% 91%;
-
     --border: 216 34% 17%;
     --input: 216 34% 17%;
     --ring: 216 34% 17%;
-
     --radius: 0.5rem;
   }
-}
 
-@layer base {
+  /* Global Element Styles Using the CSS Variables */
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 }
-

@@ -1,30 +1,37 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Lightbulb, Users, Layout, Coins } from "lucide-react"
+import { BarChart3, Layers, Layout, CircuitBoard, ArrowUpCircle, RefreshCcw } from "lucide-react"
 
 export default function ObjectivesSection() {
   const objectives = [
     {
-      icon: <Lightbulb className="h-6 w-6" />,
-      title: "Objective",
-      content:
-        "Empowering creative student projects through financial grants to evolve them into tangible products, cultivating a dynamic startup ecosystem within the country.",
+      icon: <BarChart3 className="h-6 w-6" />,
+      title: "Funding Opportunities",
+      content: "Secure financial support to bring your innovative ideas to life.",
     },
     {
-      icon: <Users className="h-6 w-6" />,
-      title: "Eligibility & Team Size",
-      content:
-        "Engineering students currently enrolled in any branch across the colleges in Kerala. Teams of 2-4 students with a faculty supervisor.",
+      icon: <Layers className="h-6 w-6" />,
+      title: "Expert Mentorship",
+      content: "Gain valuable guidance from industry professionals and experienced mentors to refine your project and enhance your skills.",
     },
     {
       icon: <Layout className="h-6 w-6" />,
-      title: "Domain",
-      content:
-        "IT and IoT solutions addressing Healthcare, EdTech, FinTech, Urban Systems, Renewable Energy, AgriTech, Sustainability, Cybersecurity, and Retail Technology.",
+      title: "Networking & Industry Exposure",
+      content: "Connect with top professionals, entrepreneurs, and expanding your professional network.",
     },
     {
-      icon: <Coins className="h-6 w-6" />,
-      title: "Fee",
-      content: "No Registration Fees",
+      icon: <CircuitBoard className="h-6 w-6" />,
+      title: "Real-World Impact",
+      content: "Work on solutions to real-world problems and create technologies that can make a difference in society.",
+    },
+    {
+      icon: <ArrowUpCircle className="h-6 w-6" />,
+      title: "Skill Enhancement",
+      content: "Develop critical skills such as project management, problem-solving, and business strategy, essential for your future career.",
+    },
+    {
+      icon: <RefreshCcw className="h-6 w-6" />,
+      title: "Recognition & Opportunities",
+      content: "Get recognized for your innovation, opening doors to further opportunities, internships, and collaborations.",
     },
   ]
 
