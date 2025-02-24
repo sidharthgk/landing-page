@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { BarChart3, Layers, Layout, CircuitBoard, ArrowUpCircle, RefreshCcw } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BarChart3, Layers, Layout, CircuitBoard, ArrowUpCircle, RefreshCcw } from "lucide-react";
 
 export default function ObjectivesSection() {
   const objectives = [
@@ -16,7 +16,7 @@ export default function ObjectivesSection() {
     {
       icon: <Layout className="h-6 w-6" />,
       title: "Networking & Industry Exposure",
-      content: "Connect with top professionals, entrepreneurs, and expanding your professional network.",
+      content: "Connect with top professionals, entrepreneurs, and expand your professional network.",
     },
     {
       icon: <CircuitBoard className="h-6 w-6" />,
@@ -33,31 +33,38 @@ export default function ObjectivesSection() {
       title: "Recognition & Opportunities",
       content: "Get recognized for your innovation, opening doors to further opportunities, internships, and collaborations.",
     },
-  ]
+  ];
 
   return (
-    <section className="py-24 bg-gradient-to-t from-background to-background/80">
+    // Removed custom background classes so the section inherits the global background.
+    <section className="py-24">
       <div className="container">
         <h2 className="text-3xl font-bold tracking-tight text-center mb-12">
           Student Project / Start-up Funding Initiative
         </h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-3">
           {objectives.map((objective, index) => (
-            <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20">
-              <CardHeader>
-                <div className="flex items-center gap-2">
-                  <div className="rounded-full bg-primary/10 p-2 text-primary">{objective.icon}</div>
-                  <CardTitle className="text-lg">{objective.title}</CardTitle>
+            <Card 
+              key={index} 
+              className="bg-card/50 backdrop-blur-sm border-primary/20 transition-all duration-300 hover:shadow-lg hover:border-primary/40 hover:-translate-y-2"
+            >
+              <CardHeader className="pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="rounded-full bg-primary/10 p-3 text-primary transition-transform duration-300 hover:scale-110">
+                    {objective.icon}
+                  </div>
+                  <CardTitle className="text-lg font-semibold">{objective.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-muted-foreground">{objective.content}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {objective.content}
+                </p>
               </CardContent>
             </Card>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
-

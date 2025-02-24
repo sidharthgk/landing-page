@@ -1,4 +1,3 @@
-// app/layout.tsx
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -16,15 +15,19 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <ThemeProvider attribute="class" defaultTheme="light">
-        <body
-          className={`${inter.className} transition-all duration-500 bg-gradient-to-br from-purple-100 via-purple-50 to-white dark:from-purple-950 dark:via-purple-900 dark:to-black`}
-        >
+      <head>
+        {/* Add any meta tags, links, etc. here */}
+      </head>
+      <body
+        suppressHydrationWarning
+        className={`${inter.className} transition-all duration-500 bg-gradient-to-br from-[#F29422] via-[#F27329] to-white dark:from-[#D03260] dark:via-[#D93232] dark:to-black`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
           <Header />
           <main className="min-h-screen">{children}</main>
           <Footer />
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
