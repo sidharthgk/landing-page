@@ -43,7 +43,7 @@ export default function Typewriter({
   }, [displayedText, isDeleting, currentText, speed, pause, texts.length]);
 
   return (
-    <span className={`text-primary border-r-2 border-primary animate-pulse ${className}`}>
+    <span className={`text-primary border-r-2 border-primary ${className}`}>
       {displayedText}
     </span>
   );

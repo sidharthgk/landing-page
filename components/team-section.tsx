@@ -1,60 +1,107 @@
-import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import React from 'react';
+import Image from "next/image";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function TeamSection() {
+export function TeamSection() {
   const team = [
     {
       name: "Ummu Habeeba K",
       role: "Lead at ProSEED",
       description:
-        "The Lead at ProSEED, is at the forefront of the Spark venture's industry-academia collaborations. Her role is instrumental in creating and maintaining strong partnerships that drive the initiative's success.",
+        "The Lead at ProSEED is at the forefront of our industry-academia collaborations, driving strong partnerships that fuel SparkVenture's success.",
+      imageSrc: "/placeholder.svg",
     },
     {
       name: "Saritha Haridas A",
       role: "Trainer at ProSEED",
       description:
-        "Contributes her expertise in training and development. Her commitment to empowering individuals through education and skill development aligns perfectly with Spark Venture's mission.",
+        "With a commitment to empowering individuals through education and skill development, she plays a key role in nurturing our talent.",
+      imageSrc: "/placeholder.svg",
     },
     {
       name: "Shabeer Puthukkudi",
       role: "EX-BT Director/Founder/CTO",
       description:
-        "A visionary leader with a robust background as the ex-BT Director, Mobile Systems Software Development and the current CTO of Veone Limited. His experience and passion drive Spark Venture's mission.",
+        "A visionary leader with extensive experience in mobile systems software development, his passion propels our mission forward.",
+      imageSrc: "/placeholder.svg",
     },
     {
       name: "Yusra Shabeer",
       role: "Business Operations Director of Veone Limited",
       description:
-        "Brings her expertise in operational strategy and management to Spark Venture. Her role is pivotal in ensuring that the initiative's day-to-day operations align with its long-term vision and goals.",
+        "Her expertise in operational strategy ensures that our day-to-day operations align with our long-term vision and goals.",
+      imageSrc: "/placeholder.svg",
     },
     {
       name: "Dr Sreela Sreedhar",
       role: "Head of the CSE Department at TocH Institute",
       description:
-        "Provides invaluable academic leadership. Her deep understanding of the academic landscape ensures that Spark Venture's initiatives are both innovative and educationally impactful.",
+        "Providing invaluable academic leadership, her insights ensure that our initiatives are both innovative and educationally impactful.",
+      imageSrc: "/placeholder.svg",
     },
-  ]
+  ];
 
   return (
-    <section className="py-24 bg-gradient-to-t from-background to-background/80">
-      <div className="container">
-        <h2 className="text-3xl font-bold tracking-tight text-center mb-12">Our Team</h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {team.map((member, index) => (
-            <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20">
-              <CardHeader>
-                <Image src="/placeholder.svg" alt={member.name} width={80} height={80} className="rounded-full mb-4" />
-                <CardTitle className="text-lg">{member.name}</CardTitle>
-                <p className="text-sm text-primary">{member.role}</p>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{member.description}</p>
-              </CardContent>
-            </Card>
+    <section className="py-16">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold tracking-tight text-primary mb-4">
+            Our Team
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Meet the dedicated professionals behind SparkVenture who make innovation possible
+          </p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+          {team.slice(0, 3).map((member, index) => (
+            <TeamMemberCard key={index} member={member} index={index} />
+          ))}
+        </div>
+
+        {/* Center the last two cards */}
+        <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto mt-8">
+          {team.slice(3).map((member, index) => (
+            <TeamMemberCard key={index + 3} member={member} index={index + 3} />
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
 
+interface TeamMemberCardProps {
+  member: {
+    name: string;
+    role: string;
+    description: string;
+    imageSrc: string;
+  };
+  index: number;
+}
+
+function TeamMemberCard({ member }: TeamMemberCardProps) {
+  return (
+    <Card className="bg-white/85 backdrop-blur-md border-none shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group">
+      <CardHeader className="flex flex-col items-center text-center pt-8">
+        <div className="relative w-28 h-28 mb-6 ring-4 ring-primary/10 rounded-full overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform duration-300">
+          <Image
+            src={member.imageSrc}
+            alt={member.name}
+            fill
+            className="rounded-full object-cover"
+          />
+        </div>
+        <CardTitle className="text-xl font-bold text-primary mb-1">
+          {member.name}
+        </CardTitle>
+        <p className="text-md font-medium text-gray-600 pb-2 border-b border-gray-200 w-2/3">
+          {member.role}
+        </p>
+      </CardHeader>
+      <CardContent className="text-center px-8 pb-8">
+        <p className="text-gray-700 leading-relaxed">{member.description}</p>
+      </CardContent>
+    </Card>
+  );
+}

@@ -136,7 +136,10 @@ function TestimonialSlider() {
                 style={{ transform: `translateX(-${current * 100}%)` }}
               >
                 {currentTestimonials.map((testimonial, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-8">
+                  <div
+                    key={index}
+                    className="w-full flex-shrink-0 px-8"
+                  >
                     <div className="flex flex-col md:flex-row items-center gap-6">
                       <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-lg">
                         <Image
@@ -210,8 +213,7 @@ function TestimonialSlider() {
 
 export default function TestimonialsPage() {
   return (
-    // Removed local background classes to use the default app background.
-    <main className="min-h-screen text-foreground py-24 mt-[-65px]">
+    <main className="bg-gradient-to-b from-background to-background/80 text-foreground py-24 mt-[-65px]">
       <div className="container mx-auto px-6">
         <div className="text-center space-y-4 mb-16">
           <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">

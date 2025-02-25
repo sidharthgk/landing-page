@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
-const config = {
-  darkMode: "class", // enable dark mode via a CSS class
+const config: Config = {
+  darkMode: "class", // Enables dark mode via a CSS class
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -54,9 +54,13 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      backgroundImage: {
+        'gradient-to-b': 'linear-gradient(to bottom, hsl(var(--background)), hsl(var(--muted)))',
+        'gradient-to-r': 'linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)))',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+};
 
 export default config;

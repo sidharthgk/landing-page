@@ -11,15 +11,14 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden mt-[-65px]">
-      {/* Background pattern */}
-      <div className="absolute inset-0 -z-10 bg-pattern opacity-30 animate-fade-in" />
+      {/* Background */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background to-background/80 animate-fade-in" />
 
       {/* Main Content */}
       <div className="container relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-16 md:grid-cols-2 md:items-center md:py-0 md:px-16">
         <div className="space-y-4 animate-fade-in">
           <div className="space-y-4">
             <div className="flex items-center gap-4 justify-start ml-[-16px]">
-              {/* Light mode: show black typography, Dark mode: show white typography */}
               <Image
                 src="/sp-black-typography.svg"
                 alt="Spark Venture 2025 Black Typography"
@@ -42,10 +41,10 @@ export default function HeroSection() {
           </div>
 
           <div className="space-y-4">
-            <p className="text-lg leading-8 text-slate-700 dark:text-slate-300">
+            <p className="text-lg leading-8 text-gray-700">
               The countdown has begun! Spark Venture 2025 is officially here, and we're calling all engineering and computer science students in Kerala to step up and showcase their groundbreaking ideas. Powered by Core Cognitics in collaboration with Toc H Institute of Science and Technology, this is your moment to turn your vision into reality.
             </p>
-            <p className="text-xl font-semibold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">
+            <p className="text-xl font-semibold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
               Compete. Innovate. Transform.
             </p>
           </div>
@@ -55,7 +54,7 @@ export default function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="w-full md:w-auto bg-gradient-to-r from-secondary to-accent text-white hover:from-secondary/90 hover:to-accent/90"
+              className="w-full md:w-auto bg-gradient-to-r from-primary to-primary/80 text-white hover:from-primary/90 hover:to-primary/70"
             >
               <Link href="/apply" className="px-8">
                 Apply Now
@@ -77,7 +76,7 @@ export default function HeroSection() {
 
         <div className="flex justify-center md:justify-end">
           <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/30 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300" />
             <Image
               src={heroIllustration}
               alt="Spark Venture Prize"
