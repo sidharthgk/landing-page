@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden mt-[-65px]">
       {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background to-background/80 animate-fade-in" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-background to-background/80 dark:bg-transparent animate-fade-in" />
 
       {/* Main Content */}
       <div className="container relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 py-16 md:grid-cols-2 md:items-center md:py-0 md:px-16">
@@ -56,7 +56,7 @@ export default function HeroSection() {
               size="lg"
               className="w-full md:w-auto bg-gradient-to-r from-primary to-primary/80 text-white hover:from-primary/90 hover:to-primary/70"
             >
-              <Link href="/apply" className="px-8">
+              <Link href="/register" className="px-8">
                 Apply Now
               </Link>
             </Button>

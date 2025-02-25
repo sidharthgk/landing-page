@@ -1,9 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { User, Building2, GraduationCap, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import {
+  User,
+  Building2,
+  GraduationCap,
+  ChevronLeft,
+  ChevronRight,
+  Quote,
+} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 type Testimonial = {
   author: string;
@@ -21,7 +28,7 @@ const testimonials: { [key: string]: Testimonial[] } = {
       institution: "Mangalam College of Engineering Ettumanoor, Kerala",
       content:
         "I am immensely proud and honoured to accept the first prize in this year's SparkVenture24, Ignite Innovation Challenge organised by Freston Analytics Pvt Ltd, ProSEED, and TocH Institute of Science and Technology...",
-      image: "/images/testimonial1.jpg",
+      image: "/Dr.-Vinodh-P-Vijayan.jpg",
     },
     {
       author: "Dr. Preethi Thekkath",
@@ -29,7 +36,7 @@ const testimonials: { [key: string]: Testimonial[] } = {
       institution: "Toc H Institute of Science & Technology Arakkunnam, Kerala",
       content:
         "The SparkVenture - Ignite Innovation Challenge has been an exceptional platform for our students, offering them invaluable exposure to real-world challenges and the chance to develop innovative projects with significant potential impact...",
-      image: "/images/testimonial2.jpg",
+      image: "/dr-preethi.jpeg",
     },
     {
       author: "Dr. Sudha T",
@@ -37,7 +44,7 @@ const testimonials: { [key: string]: Testimonial[] } = {
       institution: "Saintgits College of Engineering (Autonomous)",
       content:
         "SparkVenture-2024 stands as a testament to the boundless creativity and ingenuity of our students. I am delighted to see that participants from Saintgits College of Engineering secured third prize in the event...",
-      image: "/images/testimonial3.jpg",
+      image: "/dr-sudha.jpg",
     },
   ],
   companies: [
@@ -71,21 +78,25 @@ function TestimonialSlider() {
   useEffect(() => {
     const timer = setInterval(() => {
       if (!isAnimating) {
-        next();
+        handleNext();
       }
     }, 5000);
     return () => clearInterval(timer);
   }, [current, isAnimating]);
 
-  const prev = () => {
+  const handlePrev = () => {
     setIsAnimating(true);
-    setCurrent((prev) => (prev === 0 ? currentTestimonials.length - 1 : prev - 1));
+    setCurrent((prev) =>
+      prev === 0 ? currentTestimonials.length - 1 : prev - 1
+    );
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  const next = () => {
+  const handleNext = () => {
     setIsAnimating(true);
-    setCurrent((prev) => (prev === currentTestimonials.length - 1 ? 0 : prev + 1));
+    setCurrent((prev) =>
+      prev === currentTestimonials.length - 1 ? 0 : prev + 1
+    );
     setTimeout(() => setIsAnimating(false), 500);
   };
 
@@ -141,14 +152,18 @@ function TestimonialSlider() {
                     className="w-full flex-shrink-0 px-8"
                   >
                     <div className="flex flex-col md:flex-row items-center gap-6">
-                      <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-lg">
+                      {/* Bigger Round Image */}
+                      <div className="rounded-full overflow-hidden w-fit h-fit shadow-lg">
                         <Image
                           src={testimonial.image}
                           alt={testimonial.author}
-                          fill
-                          className="object-cover"
+                          // Increased from 200x200 to 400x400
+                          width={400}
+                          height={400}
+                          className="object-cover object-center"
                         />
                       </div>
+
                       <div className="text-center md:text-left space-y-4">
                         <p className="text-lg text-gray-700 leading-relaxed break-words">
                           "{testimonial.content}"
@@ -176,14 +191,14 @@ function TestimonialSlider() {
         {currentTestimonials.length > 1 && (
           <>
             <button
-              onClick={prev}
+              onClick={handlePrev}
               className="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white text-primary p-2 rounded-full shadow-lg hover:scale-110 transition-transform duration-200"
               disabled={isAnimating}
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
             <button
-              onClick={next}
+              onClick={handleNext}
               className="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-white text-primary p-2 rounded-full shadow-lg hover:scale-110 transition-transform duration-200"
               disabled={isAnimating}
             >

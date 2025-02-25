@@ -5,7 +5,6 @@ export default function AboutUsPage() {
   return (
     <main className="bg-gradient-to-b from-background to-background/80 text-foreground py-24 mt-[-65px]">
       <div className="container mx-auto px-6">
-        {/* About Us Hero */}
         <section className="text-center mb-20">
           <h1 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80">
             About Us

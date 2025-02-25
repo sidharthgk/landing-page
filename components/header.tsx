@@ -14,7 +14,6 @@ export default function Header() {
     setMounted(true);
   }, []);
 
-  // Render nothing until mounted to avoid hydration mismatches.
   if (!mounted) return null;
 
   return (
@@ -28,7 +27,7 @@ export default function Header() {
           />
         </Link>
         <nav className="flex items-center space-x-8">
-          <Link href="/features" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
             Home
           </Link>
           <Link href="/about" className="text-sm font-medium transition-colors hover:text-primary">
@@ -39,9 +38,6 @@ export default function Header() {
           </Link>
           <Link href="/testimonials" className="text-sm font-medium transition-colors hover:text-primary">
             Testimonials
-          </Link>
-          <Link href="/contact" className="text-sm font-medium transition-colors hover:text-primary">
-            Contact Us 
           </Link>
         </nav>
         <div className="flex items-center space-x-4">
@@ -58,12 +54,16 @@ export default function Header() {
             {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             <span className="sr-only">Toggle theme</span>
           </Button>
-          <Button variant="outline" className="bg-primary/20 hover:bg-primary/30">
-            Sign In
-          </Button>
-          <Button className="bg-gradient-to-r from-secondary to-accent text-white hover:from-secondary/90 hover:to-accent/90">
-            Sign Up
-          </Button>
+          <Link href="/login">
+            <Button variant="outline" className="bg-primary/20 hover:bg-primary/30">
+              Sign In
+            </Button>
+          </Link>
+          <Link href="/register">
+            <Button className="bg-gradient-to-r from-secondary to-accent text-white hover:from-secondary/90 hover:to-accent/90">
+              Sign Up
+            </Button>
+          </Link>
         </div>
       </div>
     </header>

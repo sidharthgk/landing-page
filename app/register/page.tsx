@@ -17,6 +17,8 @@ import Link from "next/link";
 
 export default function RegisterPage() {
   const [formState, setFormState] = useState({
+    email: "",
+    password: "",
     teamName: "",
     college: "",
     customCollege: "",
@@ -64,6 +66,44 @@ export default function RegisterPage() {
           <CardContent>
             <form className="space-y-8" onSubmit={handleSubmit}>
               <div className="space-y-6">
+                {/* Email */}
+                <div className="grid gap-3">
+                  <Label
+                    htmlFor="email"
+                    className="text-gray-700 dark:text-gray-300 text-lg font-medium"
+                  >
+                    Email <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formState.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    placeholder="Enter your email"
+                    className="bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:placeholder:text-gray-400 placeholder:text-gray-400 text-lg focus:outline-none p-6"
+                    required
+                  />
+                </div>
+
+                {/* Password */}
+                <div className="grid gap-3">
+                  <Label
+                    htmlFor="password"
+                    className="text-gray-700 dark:text-gray-300 text-lg font-medium"
+                  >
+                    Password <span className="text-red-500">*</span>
+                  </Label>
+                  <Input
+                    id="password"
+                    type="password"
+                    value={formState.password}
+                    onChange={(e) => handleChange("password", e.target.value)}
+                    placeholder="Enter your password"
+                    className="bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:placeholder:text-gray-400 placeholder:text-gray-400 text-lg focus:outline-none p-6"
+                    required
+                  />
+                </div>
+
                 {/* Team Name */}
                 <div className="grid gap-3">
                   <Label
@@ -262,8 +302,7 @@ export default function RegisterPage() {
                 </div>
 
                 <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
-                  By submitting, you agree to the terms and conditions of the
-                  SparkVenture Challenge
+                  By submitting, you agree to the terms and conditions of the SparkVenture Challenge
                 </p>
               </div>
             </form>

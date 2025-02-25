@@ -9,35 +9,35 @@ export function TeamSection() {
       role: "Lead at ProSEED",
       description:
         "The Lead at ProSEED is at the forefront of our industry-academia collaborations, driving strong partnerships that fuel SparkVenture's success.",
-      imageSrc: "/placeholder.svg",
+      imageSrc: "/ummu-habeeba.jpeg",
     },
     {
       name: "Saritha Haridas A",
       role: "Trainer at ProSEED",
       description:
         "With a commitment to empowering individuals through education and skill development, she plays a key role in nurturing our talent.",
-      imageSrc: "/placeholder.svg",
+      imageSrc: "/saritha-haridas.jpg",
     },
     {
       name: "Shabeer Puthukkudi",
       role: "EX-BT Director/Founder/CTO",
       description:
         "A visionary leader with extensive experience in mobile systems software development, his passion propels our mission forward.",
-      imageSrc: "/placeholder.svg",
+      imageSrc: "/shabeer.png",
     },
     {
       name: "Yusra Shabeer",
       role: "Business Operations Director of Veone Limited",
       description:
         "Her expertise in operational strategy ensures that our day-to-day operations align with our long-term vision and goals.",
-      imageSrc: "/placeholder.svg",
+      imageSrc: "/yusra.jpeg",
     },
     {
       name: "Dr Sreela Sreedhar",
       role: "Head of the CSE Department at TocH Institute",
       description:
         "Providing invaluable academic leadership, her insights ensure that our initiatives are both innovative and educationally impactful.",
-      imageSrc: "/placeholder.svg",
+      imageSrc: "/sreela.jpeg",
     },
   ];
 
